@@ -1,0 +1,107 @@
+<!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+</button> -->
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form style="margin-left:20px; margin-top: 10px; max-width: 100%" [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Personal Details</ng-template>
+
+          <mat-grid-list cols="8" rowHeight="100px">
+            <mat-grid-tile [colspan]="2" [rowspan]="1">
+              <mat-form-field>
+                <mat-select placeholder="Education" name="education" required>
+                  <mat-option value="HS"> High School</mat-option>
+                  <mat-option value="HSC"> Higher Secondary</mat-option>
+                  <mat-option value="UG"> Under Graduate</mat-option>
+                  <mat-option value="PG"> Post Graduate</mat-option>
+                  <mat-option value="BE"> Bachelor's Engineering</mat-option>
+                  <mat-option value="ME"> Master's Engineering</mat-option>
+                  <mat-option value="MBBS"> Medical Doctor</mat-option>
+                  <mat-option value="PHD"> Philosophy in Doctorate</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2" [rowspan]="1">
+              <mat-form-field>
+                <input matInput placeholder="College/School" name="name" required>
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2" [rowspan]="1">
+              <mat-form-field>
+                <mat-select placeholder="Occupation" name="occupation" required>
+                  <mat-option value="govt"> Government</mat-option>
+                  <mat-option value="private"> Private Organization</mat-option>
+                  <mat-option value="business"> Business</mat-option>
+                  <mat-option value="selfemployeed"> Self Employeed</mat-option>
+                  <mat-option value="unemployed"> Unemployed</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2" [rowspan]="1">
+              <mat-form-field>
+                <input matInput placeholder="Organization/Institution" name="name" required>
+              </mat-form-field>
+            </mat-grid-tile>
+          </mat-grid-list>
+
+          <mat-grid-list cols="8" rowHeight="100px">
+            <mat-grid-tile [colspan]="2" [rowspan]="1">
+              <mat-form-field>
+                <mat-select placeholder="Salary" name="gender" required>
+                  <mat-option value="0"> 0 - 1 Lakh</mat-option>
+                  <mat-option value="1"> 1 - 2 Lakh </mat-option>
+                  <mat-option value="5"> 2 - 5 Lakh</mat-option>
+                  <mat-option value="10"> 5 - 10 Lakh</mat-option>
+                  <mat-option value="20"> 10 - 20 Lakh</mat-option>
+                  <mat-option value="50"> 20 - 50 Lakh</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2" [rowspan]="1">
+              <mat-form-field>
+                <mat-select placeholder="Religion" name="gender" required>
+                  <mat-option value="Christian"> Christian</mat-option>
+                  <mat-option value="Hindu"> Hindu</mat-option>
+                  <mat-option value="Muslim"> Muslim</mat-option>
+                  <mat-option value="Atheist"> Atheist</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2" [rowspan]="1">
+              <mat-form-field>
+                <input matInput placeholder="SubCast" name="name" required>
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2" [rowspan]="1">
+            </mat-grid-tile>
+          </mat-grid-list>
+
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Photo Gallery</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Address" formControlName="secondCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button (click)="openDialog()">Upload</button>
+      </div>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Complete</ng-template>
+    You are now done.
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

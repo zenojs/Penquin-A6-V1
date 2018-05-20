@@ -1,0 +1,137 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~font-awesome/css/font-awesome.css';
+@import "./app/shared/grid";
+@import "./app/shared/colors";
+$font-family: 'Roboto', Helvetica, sans-serif;
+
+html, body {
+  font-family: $font-family;
+  color: #444444;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: #f2f2f2;
+}
+
+input, textarea, button {
+  font-family: inherit;
+  font-size: 1em;
+}
+
+input:not([type=checkbox]):not([type=radio]), textarea {
+  -webkit-appearance: none !important;
+}
+
+* {
+  outline: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: -1px;
+  text-overflow: '';
+}
+
+button {
+  cursor: pointer;
+}
+
+md-toolbar-row {
+  justify-content: space-between;
+}
+
+.main-container{
+  padding-top: 100px;
+}
+
+.filters-wrapper{
+  position: relative;
+  z-index: 90000;
+}
+
+sort-filters{
+  position: relative;
+  z-index: 20;
+}
+
+cart{
+  position: absolute;
+  top: -23px;
+  right: -57px;
+  z-index: 99999999;
+}
+
+search-bar{
+  position: relative;
+  top: -8px;
+}
+
+showcase{
+  position: relative;
+  top: -39px;
+  z-index: 10
+}
+
+.sort-filters-wrapper{
+  position: relative;
+}
+
+url-form{
+  position: absolute;
+  top: -55px;
+}
+
+.mat-icon {
+  color: #4f94d5;
+}
+
+/** Media queries **/
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 480px) {
+    url-form{
+        position: fixed;
+        bottom: 20px;
+        left: 10px;
+    }
+
+    filters{
+      position: fixed;
+      top: 44px;
+      right: -100%;
+      width: 100%;
+      height: 100%;
+    }
+    .sort-filters-wrapper{
+      position: fixed;
+      top: 44px;
+      left: 0;
+      width: 100%;
+      box-shadow: 0px 3px 16px rgba(0,0,0,0.3);
+      padding-top: 10px;
+      background: $primary-color;
+      z-index: 200;
+    }
+
+    .main-container{
+      padding-top: 34px;
+    }
+    search-bar{
+      position: fixed;
+      top: 0;
+      width: 100%;
+      left: 0;
+      z-index: 9000;
+    }
+
+  }
