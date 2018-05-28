@@ -1,0 +1,72 @@
+body {
+	margin: 0;
+	font-family: Roboto, sans-serif;
+  }
+  
+  mat-card {
+	max-width: 80%;
+	margin: 2em auto;
+	text-align: center;
+  }
+  
+  mat-toolbar-row {
+	justify-content: space-between;
+  }
+  
+  .done {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	color: white;
+  }
+  
+.toolbar {
+  background: #1976d2;
+  color: #fff;
+}
+
+.search-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  min-width: 150px;
+  height: 100%;
+}
+
+.sidenav-content {
+	display: flex;
+	height: 100vh;
+	align-items: center;
+	justify-content: center;
+}
+
+.sidenav {
+	background-color: #0747A6;
+}
+
+.active {
+	background-color: rgba(9, 30, 66, 0.25);
+}
+
+.sidenav-item {
+	color: black;
+	font-size: 20px;
+}
+
+md-icon {
+	color: white;
+}
+
+.demo-toolbar {
+	padding: 6px;
+	.demo-toolbar-icon {
+		padding: 0 14px;
+	}
+	.demo-fill-remaining {
+		flex: 1 1 auto;
+	}
+	button {
+		margin: 0 4px;
+	}
+}

@@ -1,0 +1,31 @@
+<mat-card style="margin-left:20px; margin-top: 10px; max-width: 400px">
+  <mat-card-title>Login</mat-card-title>
+  <mat-card-content>
+    <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+      <mat-dialog-content>
+        <mat-form-field style="display: block;">
+          <mat-icon matSuffix>verified_user</mat-icon>
+          <input autocomplete="username" matInput placeholder="User Name/Email" name="username" [(ngModel)]="model.username" #username="ngModel"
+            required>
+          <mat-error *ngIf="f.submitted && username.invalid">Username is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field style="display: block;">
+          <mat-icon matSuffix>remove_red_eye</mat-icon>
+          <input autocomplete="current-password" matInput type="password" placeholder="Password" name="password" [(ngModel)]="model.password"
+            #password="ngModel" required>
+          <mat-error *ngIf="f.submitted && password.invalid">Password is required</mat-error>
+        </mat-form-field>
+      </mat-dialog-content>
+      <mat-dialog-actions>
+        <div class="form-group">
+          <!-- <div *ngIf="f. f.submitted && !isvalid" class="error"> Wrong credentials. </div> -->
+          <button mat-raised-button [disabled]="loading">Login</button>
+          <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+          />
+          <button mat-button color="primary" [routerLink]="['/partner']">Register</button>
+        </div>
+      </mat-dialog-actions>
+    </form>
+  </mat-card-content>
+</mat-card>

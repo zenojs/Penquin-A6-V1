@@ -1,0 +1,56 @@
+<mat-card  style="margin-left:20px; margin-top: 10px; max-width: 400px">
+  <mat-card-title>Register New User</mat-card-title>
+  <mat-card-content>
+    <form name="form" (ngSubmit)="f.form.valid && save()" #f="ngForm" novalidate>
+      <!-- <form class="form-horizontal" role="form" method="POST" [formGroup]="formGroup" #f="ngForm"> -->
+      <mat-dialog-content>
+        <mat-form-field>
+          <mat-icon matSuffix>verified_user</mat-icon>
+          <input matInput placeholder="Full Name" name="name" [(ngModel)]="model.name" #name="ngModel" required>
+          <mat-error *ngIf="f.submitted && name.invalid">{{getErrorMessage('name')}}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-icon matSuffix>phone</mat-icon>
+          <input matInput placeholder="Mobile" name="mobile" [(ngModel)]="model.mobile" #mobile="ngModel" required>
+          <mat-error *ngIf="f.submitted && mobile.invalid">{{getErrorMessage('mobile')}}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-icon matSuffix>face</mat-icon>
+          <mat-select placeholder="Gender" name="gender" [(ngModel)]="model.gender" #gender="ngModel" required>
+            <mat-option value="MALE"> MALE</mat-option>
+            <mat-option value="FEMALE"> FEMALE</mat-option>
+          </mat-select>
+          <mat-error *ngIf="f.submitted && gender.invalid">{{getErrorMessage('gender')}}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-icon matSuffix>email</mat-icon>
+          <input matInput placeholder="Enter your email" name="email" [(ngModel)]="model.email" #email="ngModel" required>
+          <mat-error *ngIf="f.submitted && email.invalid">{{getErrorMessage('email')}}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-icon matSuffix>remove_red_eye</mat-icon>
+          <input type="password" matInput placeholder="Password" name="password" [(ngModel)]="model.password" #password="ngModel" required>
+          <mat-error *ngIf="f.submitted && password.invalid">{{getErrorMessage('password')}}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-icon matSuffix>remove_red_eye</mat-icon>
+          <input type="password" matInput placeholder="Confirm Password" name="confirmPassword" [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel" required>
+          <mat-error *ngIf="f.submitted && confirmPassword.invalid">{{getErrorMessage('confirmPassword')}}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <!-- <input matInput [matDatepicker]="dateofbirth" placeholder="Start Date" [(ngModel)]="dateofbirth" required> -->
+          <input matInput [matDatepicker]="dateofbirth" placeholder="Date of Birth" name="dateofbirth" [(ngModel)]="model.dateofbirth" #dateofbirth="ngModel">
+          <mat-datepicker-toggle matSuffix [for]="dateofbirth"></mat-datepicker-toggle>
+          <mat-datepicker #dateofbirth></mat-datepicker>
+          <mat-error *ngIf="f.submitted && dateofbirth.invalid">{{getErrorMessage('dateofbirth')}}</mat-error>
+        </mat-form-field>
+      </mat-dialog-content>
+      <mat-dialog-actions>
+        <button mat-raised-button [disabled]="loading"> Register </button>
+        <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+        />
+        <button mat-button color="primary" (click)="close()"> Close </button>
+      </mat-dialog-actions>
+    </form>
+  </mat-card-content>
+</mat-card>

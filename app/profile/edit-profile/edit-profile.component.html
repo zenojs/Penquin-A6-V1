@@ -1,0 +1,190 @@
+<!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+</button> -->
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form style="margin-left:20px; margin-top: 10px; max-width: 100%" [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Personal Details</ng-template>
+
+      <mat-grid-list cols="8" rowHeight="100px">
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
+          <mat-form-field>
+            <mat-select placeholder="Education" [formControl]="firstFormGroup.controls.education" required>
+              <mat-option value="HS"> High School</mat-option>
+              <mat-option value="HSC"> Higher Secondary</mat-option>
+              <mat-option value="UG"> Under Graduate</mat-option>
+              <mat-option value="PG"> Post Graduate</mat-option>
+              <mat-option value="BE"> Bachelor's Engineering</mat-option>
+              <mat-option value="ME"> Master's Engineering</mat-option>
+              <mat-option value="MBBS"> Medical Doctor</mat-option>
+              <mat-option value="PHD"> Philosophy in Doctorate</mat-option>
+            </mat-select>
+            <mat-error *ngIf="firstFormGroup.controls.education.hasError">Education is required</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
+          <mat-form-field>
+            <input matInput placeholder="College/School" [formControl]="firstFormGroup.controls.college" required>
+            <mat-error *ngIf="firstFormGroup.controls.college.hasError">College is required</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
+          <mat-form-field>
+            <mat-select placeholder="Occupation" [formControl]="firstFormGroup.controls.occupation" required>
+              <mat-option value="govt"> Government</mat-option>
+              <mat-option value="private"> Private Organization</mat-option>
+              <mat-option value="business"> Business</mat-option>
+              <mat-option value="selfemployeed"> Self Employeed</mat-option>
+              <mat-option value="unemployed"> Unemployed</mat-option>
+            </mat-select>
+            <mat-error *ngIf="firstFormGroup.controls.occupation.hasError">Occupation is required</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
+          <mat-form-field>
+            <input matInput placeholder="Organization/Institution" [formControl]="firstFormGroup.controls.organization" autocomplete="organization"
+              required>
+            <mat-error *ngIf="firstFormGroup.controls.organization.hasError">Organization is required</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <mat-grid-list cols="8" rowHeight="100px">
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
+          <mat-form-field>
+            <mat-select placeholder="Salary" [formControl]="firstFormGroup.controls.salary" required>
+              <mat-option value="0"> 0 - 1 Lakh</mat-option>
+              <mat-option value="1"> 1 - 2 Lakh </mat-option>
+              <mat-option value="5"> 2 - 5 Lakh</mat-option>
+              <mat-option value="10"> 5 - 10 Lakh</mat-option>
+              <mat-option value="20"> 10 - 20 Lakh</mat-option>
+              <mat-option value="50"> 20 - 50 Lakh</mat-option>
+            </mat-select>
+            <mat-error *ngIf="firstFormGroup.controls.salary.hasError">Salary is required</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
+          <mat-form-field>
+            <mat-select placeholder="Religion" [formControl]="firstFormGroup.controls.religion" required>
+              <mat-option value="Christian"> Christian</mat-option>
+              <mat-option value="Hindu"> Hindu</mat-option>
+              <mat-option value="Muslim"> Muslim</mat-option>
+              <mat-option value="Atheist"> Atheist</mat-option>
+            </mat-select>
+            <mat-error *ngIf="firstFormGroup.controls.religion.hasError">Religion is required</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
+          <mat-form-field>
+            <input matInput placeholder="SubCast" [formControl]="firstFormGroup.controls.subcast" autocomplete="subcast" required>
+            <mat-error *ngIf="firstFormGroup.controls.subcast.hasError">Subcast is required</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <mat-grid-list cols="8" rowHeight="100px">
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
+          <mat-form-field>
+            <input matInput placeholder="Father's Name" [formControl]="firstFormGroup.controls.fathername" autocomplete="fathername"
+              required>
+            <mat-error *ngIf="firstFormGroup.controls.fathername.hasError">Father's Name is required</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
+          <mat-form-field>
+            <mat-select placeholder="Father's Occupation" [formControl]="firstFormGroup.controls.fatheroccupation" required>
+              <mat-option value="govt"> Government</mat-option>
+              <mat-option value="private"> Private Organization</mat-option>
+              <mat-option value="business"> Business</mat-option>
+              <mat-option value="selfemployeed"> Self Employeed</mat-option>
+              <mat-option value="unemployed"> Unemployed</mat-option>
+            </mat-select>
+            <mat-error *ngIf="firstFormGroup.controls.fatheroccupation.hasError">Father's Occupation is required</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
+          <mat-form-field>
+            <input matInput placeholder="Mother's Name" [formControl]="firstFormGroup.controls.mothername" autocomplete="mothername"
+              required>
+            <mat-error *ngIf="firstFormGroup.controls.mothername.hasError">Mother's Name is required</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
+          <mat-form-field>
+            <mat-select placeholder="Mother's Occupation" [formControl]="firstFormGroup.controls.motheroccupation" required>
+              <mat-option value="govt"> Government</mat-option>
+              <mat-option value="private"> Private Organization</mat-option>
+              <mat-option value="business"> Business</mat-option>
+              <mat-option value="selfemployeed"> Self Employeed</mat-option>
+              <mat-option value="unemployed"> Unemployed</mat-option>
+            </mat-select>
+            <mat-error *ngIf="firstFormGroup.controls.motheroccupation.hasError">Mother's Occupation is required</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <mat-grid-list cols="8" rowHeight="100px">
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
+          <mat-form-field>
+            <input matInput placeholder="City/State/Country" [formControl]="firstFormGroup.controls.country" autocomplete='address-level2'
+              Googleplace required>
+            <mat-error *ngIf="firstFormGroup.controls.country.hasError">Country is required</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
+          <mat-form-field>
+            <textarea matInput placeholder="Address" [formControl]="firstFormGroup.controls.address" autocomplete='address-level2' required></textarea>
+            <mat-error *ngIf="firstFormGroup.controls.address.hasError">Address is required</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <div>
+        <button mat-raised-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Photo Gallery</ng-template>
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+        <mat-card class="card-picture" *ngFor="let picture of pictures">
+          <!-- <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+            
+          </mat-card-title> -->
+          <mat-card-content>
+            <img mat-card-image [src]="picture.img">
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-icon-button (click)="editImage(picture)">
+              <mat-icon>mode_edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="deleteImage(picture)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      <div>
+        <button mat-raised-button (click)="openDialog()">Upload</button>
+      </div>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Complete</ng-template>You are now done.
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
